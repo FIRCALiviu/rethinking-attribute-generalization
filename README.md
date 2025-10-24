@@ -50,3 +50,16 @@ The next step is to train linear probes for both the McRae × THINGS and the Bin
 python probing_norms/predict.py --feature-type swin-v2-ssl --norms-type mcrae-x-things --split-type repeated-k-fold --embeddings-level concept --classifier-type linear-probe
 ```
 where `--split-type` can be `repeated-k-fold` for random splits, `similarity-k-fold` for obtaining the similarity split, `llm-k-fold` for obtaining the LLM based one, `clustering` for the clustering split and `supercategs` for the supercategory split.
+
+**Results generation.**
+Finally, we evaluate the performance in terms of F₁ selectivity for McRae × THINGS
+```bash
+python probing_norms/get_results.py paper-table-main-acl-camera-ready:swin-v2-ssl
+```
+
+**Correlation with the supercategory**
+
+```bash
+python probing_norms/scripts/eval_norm_correlations.py
+```
+

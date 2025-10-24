@@ -254,7 +254,7 @@ def get_train_test_split_k_means(
     class_to_label,
     n_splits=5,
     n_repeats=2):
-    file = open('./k_means_split.json')
+    file = open('./splits/k_means_split.json')
     loaded_data = json.load(file)
     splits = loaded_data['splits']
     features = loaded_data['features']
@@ -272,7 +272,7 @@ def get_train_test_split_categs(
     class_to_label,
     n_splits=5,
     n_repeats=2):
-    file = open('./categs_split.json')
+    file = open('./splits/categs_split.json')
     data = json.load(file)
 
     for key in data:
@@ -630,7 +630,7 @@ def main(classifier_type, embeddings_level, feature_type, norms_type, split_type
     dataset = DATASETS[dataset_name]()
     norm_loader = NORMS_LOADERS[norms_type]()
     feature_to_concepts, feature_to_id, features_selected = norm_loader()
-    features_selected = set(ast.literal_eval(open('./intersect_features.json').read())) & set(ast.literal_eval(open('./k_means_features.json').read()))
+    features_selected = ast.literal_eval(open('./intersect_features.json').read())
     selected_concepts = norm_loader.load_concepts()
     selected_labels = [dataset.class_to_label[c] for c in selected_concepts]
     embeddings, labels = load_embeddings(dataset_name, feature_type, embeddings_level)
