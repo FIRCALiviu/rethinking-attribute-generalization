@@ -2,10 +2,17 @@ This repository contains code for the paper:
 >   Liviu Nicolae Firca, Antonio Barbalau, Dan Oneata, Elena Burceanu  
 >[**Not All Splits Are Equal: Rethinking Attribute
 Generalization Across Dissimilar Categories**](https://arxiv.org/abs/2509.06998)
+> CausScien & Reliable ML from Unreliable Data, 2025
+
+## Abstract
+
+Can models generalize attribute knowledge across semantically and perceptually dissimilar categories? While prior work has addressed attribute prediction within narrow taxonomic or visually similar domains, it remains unclear whether current models can abstract attributes and apply them to conceptually distant categories. This work presents the first explicit evaluation for the robustness of the attribute prediction task under such conditions, testing whether models can correctly infer shared attributes between unrelated object types: e.g., identifying that the attribute "has four legs" is common to both "dogs" and "chairs". To enable this evaluation, we introduce train-test split strategies that progressively reduce correlation between training and test sets, based on: LLM-driven semantic grouping, embedding similarity thresholding, embedding-based clustering, and supercategory-based partitioning using ground-truth labels. Results show a sharp drop in performance as the correlation between training and test categories decreases, indicating strong sensitivity to split design. Among the evaluated methods, clustering yields the most effective trade-off, reducing hidden correlations while preserving learnability. These findings offer new insights into the limitations of current representations and inform future benchmark construction for attribute reasoning.
 
 ## Splits
 
 The splits have been cached in the `splits` directory.
+
+
 
 # Reproducing the results
 
